@@ -1,0 +1,19 @@
+@use "sass:math";
+
+@function rem($pixel) {
+    @if math.is-unitless($pixel){
+        @return math.div($pixel, 16) + rem;
+    } @else {
+        @error 'Pass #{$pixel} in number only, without units.';
+    }
+}
+
+@function em($pixel) {
+    @if math.is-unitless($pixel){
+        @return math.div($pixel, 16) + em;
+    } @else {
+        @error 'Pass #{$pixel} in number only, without units.';
+    }
+}
+
+

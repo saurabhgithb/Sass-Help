@@ -1,0 +1,49 @@
+@use "../util" as u;
+
+// %widget {
+//   padding: u.rem(16);
+// }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: u.rem(40);
+  // max-width: 1000px;
+  width: min(100% - u.rem(40), u.rem(1000));
+  margin-inline: auto;
+
+  @include u.breakpoint(large) {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  &__main,
+  &__sidebar {
+    padding: u.rem(40);
+  }
+
+  &__main {
+    background-color: hsl(240, 70%, 35%);
+  }
+  &__sidebar {
+    @include u.breakpoint-down(medium){
+      text-align: center;
+    }
+  }
+  
+  &__widget {
+    // $widget: &;
+    padding: u.rem(16);
+    // &.magenta {
+    //   @extend %widget;
+    //   background-color: rgb(155, 47, 155);
+    // }
+    
+    // &.green{
+    //   // @extend .grid__widget;
+    //   // @extend #{$widget};
+    //   @extend %widget;
+    //   background-color: rgb(13, 128, 70);
+    // }
+  }
+}
